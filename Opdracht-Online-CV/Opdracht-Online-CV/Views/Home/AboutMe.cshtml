@@ -1,0 +1,31 @@
+﻿@{
+	ViewData["Title"] = "About me";
+}
+
+@{
+
+	Person person = new Person("Thiago", new DateTime(1999, 1, 22))
+			{
+				Hobbies = { "Reading", "Swimming", "Cooking" }
+			};
+
+}
+<h1>About me</h1>
+<p>Hello! My name is @person.Name, and I am @person.Age years old.</p>
+
+
+@if (person.Hobbies != null && person.Hobbies.Any())
+{
+	<p>My hobbies are:</p>
+	<ul>
+		@foreach (string hobby in person.Hobbies)
+		{
+			<li>@hobby</li>
+		}
+	</ul>
+
+}
+else
+{
+	<li>No hobbies listed.</li>
+}

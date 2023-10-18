@@ -1,0 +1,15 @@
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\bin\Debug\net6.0\ConsolePizzeria.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\bin\Debug\net6.0\ConsolePizzeria.deps.json
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\bin\Debug\net6.0\ConsolePizzeria.runtimeconfig.json
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\bin\Debug\net6.0\ConsolePizzeria.dll
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\bin\Debug\net6.0\ConsolePizzeria.pdb
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.AssemblyInfo.cs
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.dll
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\refint\ConsolePizzeria.dll
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.pdb
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ConsolePizzeria.genruntimeconfig.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsolePizzeria\obj\Debug\net6.0\ref\ConsolePizzeria.dll

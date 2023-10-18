@@ -1,0 +1,48 @@
+﻿@model CreateEmployeeModel 
+
+<div class="container">
+    <form method="post" asp-controller="Employee" asp-action="Create">
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label"></label>
+            <input asp-for="FirstName" class="form-control">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label"></label>
+            <input asp-for="LastName" class="form-control">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control">
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Birthdate" class="form-label"></label>
+            <input asp-for="Birthdate" class="form-control">
+            <span asp-validation-for="Birthdate" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DepartmentID" class="form-label"></label>
+            <select asp-for="DepartmentID" asp-items="@Model.AllDepartments"></select>
+            <span asp-validation-for="DepartmentID" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

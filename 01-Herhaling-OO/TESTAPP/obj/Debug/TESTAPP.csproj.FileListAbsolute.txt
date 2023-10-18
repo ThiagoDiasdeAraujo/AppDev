@@ -1,0 +1,8 @@
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\bin\Debug\TESTAPP.exe.config
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\bin\Debug\TESTAPP.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\bin\Debug\TESTAPP.pdb
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\obj\Debug\TESTAPP.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\obj\Debug\TESTAPP.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\obj\Debug\TESTAPP.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\obj\Debug\TESTAPP.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\TESTAPP\obj\Debug\TESTAPP.pdb

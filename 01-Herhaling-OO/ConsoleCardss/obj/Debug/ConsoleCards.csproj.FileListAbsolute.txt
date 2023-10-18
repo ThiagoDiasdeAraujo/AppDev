@@ -1,0 +1,8 @@
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\bin\Debug\ConsoleCardss.exe.config
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\bin\Debug\ConsoleCardss.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\bin\Debug\ConsoleCardss.pdb
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\obj\Debug\ConsoleCards.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\obj\Debug\ConsoleCards.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\obj\Debug\ConsoleCards.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\obj\Debug\ConsoleCardss.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleCardss\obj\Debug\ConsoleCardss.pdb

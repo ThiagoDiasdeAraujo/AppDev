@@ -1,0 +1,63 @@
+﻿@using WebApp.Data;
+@model CreateReservationModel
+
+<div class="container">
+    <form method="post" asp-controller="Reservatie" asp-action="Create">
+        <div class="mb-3">
+            <label asp-for="Voornaam" class="form-label"></label>
+            <input asp-for="Voornaam" class="form-control">
+            <span asp-validation-for="Voornaam" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Familienaam" class="form-label"></label>
+            <input asp-for="Familienaam" class="form-control">
+            <span asp-validation-for="Familienaam" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EmailBevestigen" class="form-label"></label>
+            <input asp-for="EmailBevestigen" class="form-control">
+            <span asp-validation-for="EmailBevestigen" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DatumReservatie" class="form-label"></label>
+            <input asp-for="DatumReservatie" class="form-control">
+            <span asp-validation-for="DatumReservatie" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tijdslot" class="control-label"></label>
+            <label class="radio-inline">
+                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Ochtend." />Ochtend
+            </label>
+            <label class="radio-inline">
+                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Middag" />Middag
+            </label>
+            <label class="radio-inline">
+                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Avond" />Middag
+            </label>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AantalPersonen" class="form-label"></label>
+            <input asp-for="AantalPersonen" class="form-control">
+            <span asp-validation-for="AantalPersonen" class="text-danger"></span>
+        </div>
+
+        
+
+
+        <button type="submit" class="btn btn-primary">Bevestigen</button>
+    </form>
+</div>

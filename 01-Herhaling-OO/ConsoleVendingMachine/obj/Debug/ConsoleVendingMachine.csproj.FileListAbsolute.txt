@@ -1,0 +1,8 @@
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\bin\Debug\ConsoleVendingMachine.exe.config
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\bin\Debug\ConsoleVendingMachine.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\bin\Debug\ConsoleVendingMachine.pdb
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\obj\Debug\ConsoleVendingMachine.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\obj\Debug\ConsoleVendingMachine.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\obj\Debug\ConsoleVendingMachine.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\obj\Debug\ConsoleVendingMachine.exe
+C:\Users\User\OneDrive\Bureaublad\ApplicationDevelopment\01-Herhaling-OO\ConsoleVendingMachine\obj\Debug\ConsoleVendingMachine.pdb

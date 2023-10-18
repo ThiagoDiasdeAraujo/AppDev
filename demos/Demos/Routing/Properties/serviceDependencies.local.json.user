@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-10-12T11:02:41.8157066Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2023-10-12T11:02:39.2174806Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "40a19c6b-47cd-449c-820f-33ec8381ce35"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "stages-2324-thiagod-rg"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolePizzeria", "ConsolePizzeria\ConsolePizzeria.csproj", "{CD27EFAE-7469-47B9-B346-AB1DA0525396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleCards", "ConsoleCardss\ConsoleCards.csproj", "{62133A6A-BAAD-4B5F-B134-CCF327E34400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleVendingMachine", "ConsoleVendingMachine\ConsoleVendingMachine.csproj", "{AF42A5ED-6541-45F7-BAAC-243A513BDF0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePayroll", "ConsolePayroll\ConsolePayroll.csproj", "{52D366A6-610C-4050-8B69-C57855C537C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTAPP", "TESTAPP\TESTAPP.csproj", "{F7836FA4-F081-4FAD-B328-DEC58298DEF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMediaPlayer", "ConsoleMediaPlayer\ConsoleMediaPlayer.csproj", "{FEE476FA-3D85-43E2-A517-826440F69B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBank", "ConsoleBank\ConsoleBank.csproj", "{BF6AD604-68EB-4B03-A77D-6566708027CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD27EFAE-7469-47B9-B346-AB1DA0525396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD27EFAE-7469-47B9-B346-AB1DA0525396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD27EFAE-7469-47B9-B346-AB1DA0525396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD27EFAE-7469-47B9-B346-AB1DA0525396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62133A6A-BAAD-4B5F-B134-CCF327E34400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62133A6A-BAAD-4B5F-B134-CCF327E34400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62133A6A-BAAD-4B5F-B134-CCF327E34400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62133A6A-BAAD-4B5F-B134-CCF327E34400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF42A5ED-6541-45F7-BAAC-243A513BDF0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF42A5ED-6541-45F7-BAAC-243A513BDF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF42A5ED-6541-45F7-BAAC-243A513BDF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF42A5ED-6541-45F7-BAAC-243A513BDF0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D366A6-610C-4050-8B69-C57855C537C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D366A6-610C-4050-8B69-C57855C537C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D366A6-610C-4050-8B69-C57855C537C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D366A6-610C-4050-8B69-C57855C537C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7836FA4-F081-4FAD-B328-DEC58298DEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7836FA4-F081-4FAD-B328-DEC58298DEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7836FA4-F081-4FAD-B328-DEC58298DEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7836FA4-F081-4FAD-B328-DEC58298DEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE476FA-3D85-43E2-A517-826440F69B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE476FA-3D85-43E2-A517-826440F69B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE476FA-3D85-43E2-A517-826440F69B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE476FA-3D85-43E2-A517-826440F69B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6AD604-68EB-4B03-A77D-6566708027CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6AD604-68EB-4B03-A77D-6566708027CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6AD604-68EB-4B03-A77D-6566708027CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6AD604-68EB-4B03-A77D-6566708027CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F257895B-1A11-4A0B-8DF6-FEDEB7B8F20C}
+	EndGlobalSection
+EndGlobal

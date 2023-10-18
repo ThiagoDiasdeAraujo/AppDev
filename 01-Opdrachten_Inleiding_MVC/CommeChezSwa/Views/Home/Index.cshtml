@@ -1,0 +1,36 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@{
+	DateTime currentTime = DateTime.Now;
+	string greeting = " ";
+	string menuMessage = "";
+
+	if (currentTime.Hour < 11)
+	{
+		greeting = "Goeiemorgen!";
+		menuMessage = "Bekijk ons ontbijt-menu";
+	}
+	else if (currentTime.Hour >= 11 && currentTime.Hour < 14)
+	{
+		greeting = "Goeiemiddag!";
+		menuMessage = "Bekijk ons lunch-menu";
+	}
+	else if (currentTime.Hour >= 14 && currentTime.Hour < 17)
+	{
+		greeting = "Welkom!";
+		menuMessage = "Bekijk de suggestiemenu";
+	}
+	else
+	{
+		greeting = "Goeienavond!";
+		menuMessage = "Bekijk de suggestiemenu";
+	}
+}
+
+<div class="text-center">
+	<img src="img/logo_comme_chez_swa.png"><img />
+	<h1>@greeting</h1>
+	<p>@menuMessage</p>
+</div>

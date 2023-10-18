@@ -1,0 +1,62 @@
+﻿<h1>Demo</h1>
+<p>Het vandaag @DateTime.Now.ToString("d MMMM yyyy")</p>
+<p>De som van 5 en 10 is @(10 + 5)</p>
+
+@{
+	int a = 10;
+	int b = 10;
+
+	int resultaat = a + b;
+
+	<p>@resultaat</p>
+}
+
+
+@if (a < b)
+{
+	<p>uw moeder</p>
+}
+else
+{
+	<p>uw vader</p>
+}
+
+<div class="mb-3">
+	<label for="exampleFormControlInput1" class="form-label">Email address</label>
+	<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+	<label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+	<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
+
+<ul>
+	@for (int i = 1; 1 <= 10; i++)
+	{
+		<li>
+			<p>hha</p>
+		</li>
+	}
+</ul>
+
+@{
+	string[] boodschappen = { "brood", "gebak", "hash", "coka" };
+}
+
+<ul>
+	@foreach (string ee in boodschappen)
+	{
+		<li>@ee</li>
+	}
+</ul>
+@{
+	List<Product> products = new List<Product>();
+	products.Add(new Product(1, "hehe", 95));
+	products.Add(new Product(2, "heho", 45));
+	products.Add(new Product(3, "hohe", 85));
+}
+
+<table>
+	class="table"
+</table>

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@functions {
+    public string GetGreeting()
+    {
+        var currentTime = DateTime.Now.TimeOfDay;
+        string greeting = "Welkom op onze website";
+        if (currentTime < TimeSpan.FromHours(11))
+        {
+            greeting = "Goeiemorgen!";
+        }
+        else if (currentTime < TimeSpan.FromHours(14))
+        {
+            greeting = "Goeiemiddag!";
+        }
+        else if (currentTime < TimeSpan.FromHours(17))
+        {
+            greeting = "Welkom!";
+        }
+        else
+        {
+            greeting = "Goeienavond!";
+        }
+        return greeting;
+    }
+
+    public string GetSugestionMenu()
+    {
+        var currentTime = DateTime.Now.TimeOfDay;
+        string sugestionMenu = "Bekijk ons suggestiemenu.";
+        if (currentTime < TimeSpan.FromHours(11))
+        {
+            sugestionMenu = "Bekijk ons ontbijt-menu.";
+        }
+        else if (currentTime < TimeSpan.FromHours(14))
+        {
+            sugestionMenu = "Bekijk ons lunchmenu.";
+        }
+        return sugestionMenu;
+    }
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="img/logo_comme_chez_swa.png" class="img-fluid" />
+        </div>
+        <div class="col-md-6 align-self-center text-center">
+            <h1>@GetGreeting()</h1>
+            <p>@GetSugestionMenu()</p>
+        </div>
+    </div>
+</div>
+
+

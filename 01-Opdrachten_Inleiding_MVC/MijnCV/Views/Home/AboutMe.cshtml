@@ -1,0 +1,28 @@
+﻿@{
+	ViewData["Title"] = "About me";
+}
+
+@{
+
+	Person person = new Person("Thiago", new DateTime(1999, 1, 22));
+
+	int age = DateTime.Today.Year - person.Birthdate.Year;
+
+
+	person.Hobbies.Add("Reading");
+	person.Hobbies.Add("Swimming");
+	person.Hobbies.Add("Cooking");
+
+}
+<h1>About me</h1>
+<p>Hello! My name is @person.Name, and I am @age years old.</p>
+
+<p>My hobbies are:</p>
+
+	<ul>
+	@foreach (string hobby in person.Hobbies)
+	{
+		<li>@hobby</li>
+	}
+	</ul>
+

@@ -1,0 +1,31 @@
+﻿@model Album
+
+<div class="container">
+	<div class="row pb-4">
+		<div class="col-2 p-0">
+			<img src="@Model.ImageURL" class="card-img-top" alt="...">
+		</div>
+		<div class="col">
+			<p><strong>Title: </strong>@Model.Title</p>
+			<p><strong>Artist: </strong>@Model.Artist</p>
+			<p><strong>Rating: </strong> @Model.Rating</p>
+		</div>
+	</div>
+
+	@foreach (Song song in Model.Songs)
+	{
+		int min = song.Length / 60;
+		int sec = song.Length % 60;
+		string formattedDuration = $"{min}:{sec:D2}";
+
+		<div class="row pt-1">
+			<ul class="list-group list-group-horizontal justify-content-between border-bottom">
+				<li class="list-group-item"><span><i class="bi bi-music-note-list m-1"></i></span>@song.Title</li>
+				<li class="list-group-item">@formattedDuration</li>
+			</ul>
+		</div>
+
+
+	}
+</div>
+

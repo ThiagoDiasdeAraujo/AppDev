@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Services";
+}
+
+
+<h1>Services</h1>
+@{
+	string[] services = { "Website Development", "Custom Web Application Development", "Website Security", "Content Management Systems", "Web Hosting and Deployment"};
+}
+
+<p>Services I provide:</p>
+
+
+<ul class="list-group list-group-flush">
+	@foreach (var service in services)
+	{
+		<li class="list-group-item">@service</li>
+	}
+</ul>
+
