@@ -56,5 +56,4 @@ namespace WebApp.Repositories
             return _menus.Find(x => x.Id == id);
         }
     }
-
 }

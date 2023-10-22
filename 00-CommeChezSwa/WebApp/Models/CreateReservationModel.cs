@@ -1,39 +1,41 @@
 ﻿using Humanizer;
 using System.ComponentModel.DataAnnotations;
 using WebApp.Data;
+using WebApp.Validations;
+
 
 namespace WebApp.Models
 {
     public class CreateReservationModel
     {
-        [Required]
+        [Required(ErrorMessage = "Voornaam is verplicht")]
         [MaxLength(50)]
         public string? Voornaam { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Familie is verplicht")]
         [MaxLength(50)]
-        public string? Familienaam { get; }
+        public string? Familienaam { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "E-mailadres is verplicht")]
+        [EmailAddress(ErrorMessage = "Ongeldig e-mailadres")]
         public string? Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bevestiging van e-mailadres is verplicht")]
         [EmailAddress]
-        [Compare("Email")]
-        [Display(Name = "Bevestig email")]
+        [Compare("Email", ErrorMessage = "E-mailadressen komen niet overeen")]
+        [Display(Name = "Bevestig je email")]
         public string? EmailBevestigen { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Datum is verplicht")]
         [DataType(DataType.Date)]
         public DateTime? DatumReservatie { get; set; }
 
-        [Required]
-        [Range(1, 10)] 
+        [Required(ErrorMessage = "Aantal personen is verplicht")]
+        [Range(1, 10)]
         public int AantalPersonen { get; set; }
 
-        [Required]
-        [Display(Name = "Ik ga akkoord met de algemene voorwaarden")]
+        [ExpectedValue(true, ErrorMessage = "Robots are not allowed to view this page")]
+        [Display(Name = "Ik ben geen robot")]
         public bool NotARobot { get; set; }
 
         [Required]

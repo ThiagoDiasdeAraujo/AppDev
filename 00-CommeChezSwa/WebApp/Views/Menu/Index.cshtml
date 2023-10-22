@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+@model WebApp.Models.MenuModel
+
+
+<h1>Menus</h1>
+<ul id="menuLinks">
+    @foreach (var menu in Model.AllMenus)
+    {
+        <a class="" asp-controller="Menu" asp-action="Read" asp-route-id="@menu.Id">@menu.Naam</a>
+    }
+</ul>
+<div id="dishesArea">
+    @if (Model.CurrentMenu != null)
+    {
+        <h2>@Model.CurrentMenu.Naam</h2>
+        <ul>
+            @foreach (var gerecht in Model.CurrentMenu.Gerechten)
+            {
+                <li>
+                    @if (gerecht.IsVeggie)
+                    {
+                        <i>@gerecht.Naam (vegetarian): @gerecht.Prijs.ToString("C2")</i>
+                    }
+                    else
+                    {
+                        <i>@gerecht.Naam: @gerecht.Prijs.ToString("C2")</i>
+                    }
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+@* <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Onze menus</h1>
+            <ul>
+                @foreach (var menu in Model.AllMenus)
+                {
+                    <li>
+                        <a class="" asp-controller="Menu" asp-action="Read" asp-route-id="@menu.Id">@menu.Naam</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Menu's</h3>
+            <ul>
+                @foreach (var gerecht in Model.Gerechten)
+                {
+                    <li>
+                        @if (gerecht.IsVeggie)
+                        {
+                            p@gerecht.Naam (vegetarian): @gerecht.Prijs
+                        }
+                        else
+                        {
+                            @gerecht.Naam: @gerecht.Prijs;
+                            }
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div> *@

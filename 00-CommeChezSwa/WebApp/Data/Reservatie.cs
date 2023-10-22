@@ -10,6 +10,7 @@ namespace WebApp.Data
         public string? EmailBevestigen { get; set; }
         public DateTime? DatumReservatie { get; set; }
         public int? AantalPersonen { get; set; }
-        public bool GaatAkkoordMetVoorwaarden { get; set; }
+        public bool NotARobot { get; set; }
+        public Tijdslot Tijdslot { get; set; }
     }
 }

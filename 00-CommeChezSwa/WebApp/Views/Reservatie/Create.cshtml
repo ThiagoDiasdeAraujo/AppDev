@@ -13,7 +13,6 @@
             <label asp-for="Familienaam" class="form-label"></label>
             <input asp-for="Familienaam" class="form-control">
             <span asp-validation-for="Familienaam" class="text-danger"></span>
-
         </div>
 
         <div class="mb-3">
@@ -26,26 +25,27 @@
             <label asp-for="EmailBevestigen" class="form-label"></label>
             <input asp-for="EmailBevestigen" class="form-control">
             <span asp-validation-for="EmailBevestigen" class="text-danger"></span>
-
         </div>
 
         <div class="mb-3">
             <label asp-for="DatumReservatie" class="form-label"></label>
             <input asp-for="DatumReservatie" class="form-control">
             <span asp-validation-for="DatumReservatie" class="text-danger"></span>
-
         </div>
 
         <div class="mb-3">
             <label asp-for="Tijdslot" class="control-label"></label>
             <label class="radio-inline">
-                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Ochtend." />Ochtend
+                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Ochtend" /> Ochtend
+                <span asp-validation-for="Tijdslot" class="text-danger"></span>
             </label>
             <label class="radio-inline">
-                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Middag" />Middag
+                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Middag" /> Middag
+                <span asp-validation-for="Tijdslot" class="text-danger"></span>
             </label>
             <label class="radio-inline">
-                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Avond" />Middag
+                <input type="radio" asp-for="Tijdslot" value="@Tijdslot.Avond" /> Avond
+                <span asp-validation-for="Tijdslot" class="text-danger"></span>
             </label>
         </div>
 
@@ -55,8 +55,11 @@
             <span asp-validation-for="AantalPersonen" class="text-danger"></span>
         </div>
 
-        
-
+        <div class="mb-3 form-check">
+            <input type="checkbox" asp-for="NotARobot" class="form-check-input">
+            <label class="form-check-label" asp-for="NotARobot"></label>
+            <p asp-validation-for="NotARobot" class="text-danger"></p>
+        </div>
 
         <button type="submit" class="btn btn-primary">Bevestigen</button>
     </form>

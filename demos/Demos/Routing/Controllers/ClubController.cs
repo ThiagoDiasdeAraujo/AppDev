@@ -5,6 +5,7 @@ namespace Routing.Controllers
 {
 	public class ClubController : Controller
 	{
+
 		private readonly ApplicationDbContext _context;
 
 		public ClubController(ApplicationDbContext context)

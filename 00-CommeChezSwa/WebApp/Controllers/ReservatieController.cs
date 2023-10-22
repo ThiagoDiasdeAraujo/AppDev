@@ -22,7 +22,7 @@ namespace WebApp.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Success()
         {
             return View();
