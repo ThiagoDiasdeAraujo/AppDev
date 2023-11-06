@@ -6,8 +6,11 @@ using WebApp.Validations;
 
 namespace WebApp.Models
 {
-    public class CreateReservationModel
+    public class ReservatieModel
     {
+        public Reservatie? Reservatie { get; set; } 
+
+
         [Required(ErrorMessage = "Voornaam is verplicht")]
         [MaxLength(50)]
         public string? Voornaam { get; set; }
@@ -40,6 +43,7 @@ namespace WebApp.Models
 
         [Required]
         public Tijdslot Tijdslot { get; set; }
+
 
     }
 }
