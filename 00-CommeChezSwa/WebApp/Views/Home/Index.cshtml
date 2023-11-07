@@ -2,6 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="img/logo_comme_chez_swa.png" class="img-fluid" />
+        </div>
+        <div class="col-md-6 align-self-center text-center">
+            <h1>@GetGreeting()</h1>
+            <p>@GetSugestionMenu()</p>
+        </div>
+    </div>
+</div>
+
+
 @functions {
     public string GetGreeting()
     {
@@ -41,17 +56,3 @@
         return sugestionMenu;
     }
 }
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="img/logo_comme_chez_swa.png" class="img-fluid" />
-        </div>
-        <div class="col-md-6 align-self-center text-center">
-            <h1>@GetGreeting()</h1>
-            <p>@GetSugestionMenu()</p>
-        </div>
-    </div>
-</div>
-
-

@@ -1,22 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Menu";
 }
-@model WebApp.Models.MenuModel
+@model WebApp.Models.MenuViewModel
 
 
-<h1>Menus</h1>
+
+
+<h1>Onze menus</h1>
 <ul id="menuLinks">
-    @foreach (var menu in Model.AllMenus)
+    @foreach (var menu in Model.Menus)
     {
-        <a class="" asp-controller="Menu" asp-action="Read" asp-route-id="@menu.Id">@menu.Naam</a>
+        <a class="" asp-controller="Menu" asp-action="Index" asp-route-id="@menu.Id">@menu.Naam</a>
     }
 </ul>
 <div id="dishesArea">
-    @if (Model.CurrentMenu != null)
+    @if (Model.Menu != null)
     {
-        <h2>@Model.CurrentMenu.Naam</h2>
+        <h2>@Model.Menu.Naam</h2>
         <ul>
-            @foreach (var gerecht in Model.CurrentMenu.Gerechten)
+            @foreach (var gerecht in Model.Menu.Gerechten)
             {
                 <li>
                     @if (gerecht.IsVeggie)

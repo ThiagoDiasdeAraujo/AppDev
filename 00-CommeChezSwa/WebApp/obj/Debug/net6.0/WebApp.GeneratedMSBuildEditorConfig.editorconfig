@@ -28,16 +28,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/OneDrive/Bureaublad/AppDev/00-CommeChezSwa/WebApp/Views/Menu/Read.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxSZWFkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/User/OneDrive/Bureaublad/AppDev/00-CommeChezSwa/WebApp/Views/Reservatie/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/OneDrive/Bureaublad/AppDev/00-CommeChezSwa/WebApp/Views/Reservatie/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/OneDrive/Bureaublad/AppDev/00-CommeChezSwa/WebApp/Views/Reservatie/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/OneDrive/Bureaublad/AppDev/00-CommeChezSwa/WebApp/Views/Reservatie/Index.cshtml]

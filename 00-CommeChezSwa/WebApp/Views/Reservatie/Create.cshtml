@@ -1,5 +1,5 @@
 ﻿@using WebApp.Data;
-@model ReservatieModel
+@model ReservatieViewModel
 
 <div class="container">
     <form method="post" asp-controller="Reservatie" asp-action="Create">
@@ -58,9 +58,14 @@
         <div class="mb-3 form-check">
             <input type="checkbox" asp-for="NotARobot" class="form-check-input">
             <label class="form-check-label" asp-for="NotARobot"></label>
-            <p asp-validation-for="NotARobot" class="text-danger"></p>
+            <span asp-validation-for="NotARobot" class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">Bevestigen</button>
     </form>
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

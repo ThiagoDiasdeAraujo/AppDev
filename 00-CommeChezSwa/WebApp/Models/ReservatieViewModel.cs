@@ -6,7 +6,7 @@ using WebApp.Validations;
 
 namespace WebApp.Models
 {
-    public class ReservatieModel
+    public class ReservatieViewModel
     {
         public Reservatie? Reservatie { get; set; } 
 

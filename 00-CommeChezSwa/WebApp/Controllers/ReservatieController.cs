@@ -18,13 +18,13 @@ namespace WebApp.Controllers
     
         public IActionResult Create()
         {
-            ReservatieModel model = new ReservatieModel();
+            ReservatieViewModel model = new ReservatieViewModel();
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ReservatieModel model)
+        public IActionResult Create(ReservatieViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -40,10 +40,30 @@ namespace WebApp.Controllers
                 ReservatieRepository.Add(reservatie);
 
                 //Add to repository
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Success));
             }
             return View(model);
         }
+
+        public IActionResult Edit(int id)
+        {
+            Reservatie reservatie = ReservatieRepository.GetById(id);
+            return View(reservatie);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Reservatie reservatie)
+        {
+            if (ModelState.IsValid)
+            {
+                ReservatieRepository.Update(reservatie);
+                return RedirectToAction("Details", new { id = reservatie.ReservatieID });
+            }
+
+            return View(reservatie);
+        }
+
 
         public IActionResult Details(int id)
         {
@@ -51,8 +71,22 @@ namespace WebApp.Controllers
             return View(reservatie);
         }
 
+        //public IActionResult Delete(int id)
+        //{
+        //    Reservatie toDelete = ReservatieRepository.GetById(id);
+        //    return View(toDelete);
+        //}
 
-        [HttpGet]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id) /* extra parameter nodig voor overload */
+        {
+            Reservatie toDelete = ReservatieRepository.GetById(id);
+            ReservatieRepository.Delete(toDelete);
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Success()
         {
             return View();

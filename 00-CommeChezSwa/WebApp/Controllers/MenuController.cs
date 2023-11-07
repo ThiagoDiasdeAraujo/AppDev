@@ -18,38 +18,15 @@ namespace WebApp.Controllers
             _menuRepo = new MenuRepository();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string id)
         {
-            var menus = _menuRepo.GetAll().ToList();
-            var model = new MenuModel
+            MenuViewModel menuModel = new()
             {
-                CurrentMenu = null, // No menu selected initially
-                AllMenus = menus
+                Menu = _menuRepo.GetById(id),
+                Menus = _menuRepo.GetAll().ToList()
             };
-
-            return View(model);
-        }
-
-        //public IActionResult Index()
-        //{
-        //    MenuModel model = new MenuModel();
-        //    model.AllMenus = _menuRepo.GetAll().ToList();
-        //    return View(model);
-        //}
-
-        [HttpGet]
-        public IActionResult Read(string id)
-        {
-            Menu menu = _menuRepo.GetById(id);
-            var gerechten = menu.Gerechten.ToList();
-            return View(gerechten);
-        }
-        //public IActionResult Display(string id)
-        //{
-        //    _menus = _menuRepo.GetAll().ToList();
-        //    Menu menu = _menus.Single(x => x.Id == id);
-        //    return View(menu);
-        //}
+            return View(menuModel);
+        } 
     }
 }
 

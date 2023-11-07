@@ -6,74 +6,102 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Voornaam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Familienaam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-       @*      <th>
-                @Html.DisplayNameFor(model => model.EmailBevestigen)
-            </th> *@
-            <th>
-                @Html.DisplayNameFor(model => model.DatumReservatie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AantalPersonen)
-            </th>
-        @*     <th>
-                @Html.DisplayNameFor(model => model.NotARobot)
-            </th> *@
-            <th>
-                @Html.DisplayNameFor(model => model.Tijdslot)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var reservatie in Model) {
-        <tr>
-            <td>
-                    @Html.DisplayFor(modelItem => reservatie.Voornaam)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => reservatie.Familienaam)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => reservatie.Email)
-            </td>
-       @*      <td>
-                @Html.DisplayFor(modelItem => item.EmailBevestigen)
-            </td> *@
-            <td>
-                @Html.DisplayFor(modelItem => reservatie.DatumReservatie)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => reservatie.AantalPersonen)
-            </td>
-         @*    <td>
-                @Html.DisplayFor(modelItem => item.NotARobot)
-            </td> *@
-            <td>
-                    @Html.DisplayFor(modelItem => reservatie.Tijdslot)
-            </td>
-            <td>
-                    <a asp-controller="Reservatie" asp-action="Edit" asp-route-id="@reservatie.ReservatieID">Wijzigen</a> |
-                    <a asp-controller="Reservatie" asp-action="Details" asp-route-id="@reservatie.ReservatieID">Details</a> |
-                    <a asp-controller="Reservatie" asp-action="Delete" asp-route-id="@reservatie.ReservatieID">Verwijderen</a>
-            </td>
-        </tr>
+@if (@Model.Any())
+{
+    <h3>Reservaties</h3>
+    <a asp-action="Create" class="btn btn-success">Reservatie toevoegen</a>
 }
-    </tbody>
-</table>
+else
+{
+    <h3> Geen reservaties</h3>
+    <a asp-action="Create" class="btn btn-outline-success">maak hier een reservatie</a>
+}
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Voornaam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Familienaam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                @*      <th>
+                @Html.DisplayNameFor(model => model.EmailBevestigen)
+                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.DatumReservatie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AantalPersonen)
+                </th>
+                @*     <th>
+                @Html.DisplayNameFor(model => model.NotARobot)
+                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.Tijdslot)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservatie in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => reservatie.Voornaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => reservatie.Familienaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => reservatie.Email)
+                    </td>
+                    @*      <td>
+                @Html.DisplayFor(modelItem => item.EmailBevestigen)
+                </td> *@
+                    <td>
+                        @Html.DisplayFor(modelItem => reservatie.DatumReservatie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => reservatie.AantalPersonen)
+                    </td>
+                    @*    <td>
+                @Html.DisplayFor(modelItem => item.NotARobot)
+                </td> *@
+                    <td>
+                        @Html.DisplayFor(modelItem => reservatie.Tijdslot)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a hidden asp-controller="Reservatie" asp-action="Edit" asp-route-id="@reservatie.ReservatieID" class="btn btn-warning">Wijzigen</a>
+                            <a asp-controller="Reservatie" asp-action="Details" asp-route-id="@reservatie.ReservatieID" class="btn btn-primary">Details</a>
+                            <form asp-action="Delete" asp-controller="Reservatie" asp-route-id="@reservatie.ReservatieID">
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            </form>
+                        </div>
+
+                       @*  <a hidden asp-controller="Reservatie" asp-action="Edit" asp-route-id="@reservatie.ReservatieID" class="btn btn-warning">Wijzigen</a>
+                        <a asp-controller="Reservatie" asp-action="Details" asp-route-id="@reservatie.ReservatieID" class="btn btn-primary">Details</a>
+
+                        <form asp-action="Delete" asp-controller="Reservatie" asp-route-id="@reservatie.ReservatieID">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form> *@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
