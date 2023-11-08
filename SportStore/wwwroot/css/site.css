@@ -1,0 +1,36 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.fixed-image-height {
+    height: 300px;
+    object-fit: cover; /* This ensures that the entire image is visible within the fixed height */
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/*.card .btn{
+    border-color: aqua;
+}
+
+    .card .btn:hover {
+        background-color: aqua;
+    }*/
