@@ -27,6 +27,11 @@ body {
     font-weight: 500;
 }
 
+.InputAmout{
+    max-width: 35px;
+    text-align: center;
+}
+
 /*.card .btn{
     border-color: aqua;
 }

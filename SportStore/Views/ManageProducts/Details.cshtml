@@ -1,30 +1,28 @@
-﻿
-
-<div class="container">
-	<div class="row pb-4">
-		<div class="col-2 p-0">
-			<img src="@Model.ImageURL" class="card-img-top" alt="...">
-		</div>
-		<div class="col">
-			<p><strong>Title: </strong>@Model.Title</p>
-			<p><strong>Artist: </strong>@Model.Artist</p>
-			<p><strong>Rating: </strong> @Model.Rating</p>
-		</div>
-	</div>
-
-	@foreach (Song song in Model.Songs)
-	{
-		int min = song.Length / 60;
-		int sec = song.Length % 60;
-		string formattedDuration = $"{min}:{sec:D2}";
-
-		<div class="row pt-1">
-			<ul class="list-group list-group-horizontal justify-content-between border-bottom">
-				<li class="list-group-item"><span><i class="bi bi-music-note-list m-1"></i></span>@song.Title</li>
-				<li class="list-group-item">@formattedDuration</li>
-			</ul>
-		</div>
+﻿@model SportStore.Models.ManageProducts.ProductDetailsViewModel
 
 
-	}
+<div class="container-fluid">
+    <div class="row pb-4">
+        <div class="col-md-3">
+            <img src="/imgProducts/@Model.Product.ImageUrl" class="card-img-top  fixed-image-height" alt="...">
+        </div>
+        <div class="col-md-4 align-self-center">
+            <p><strong>Category: </strong>@Model.Product.Category.Name</p>
+            <h3>@Model.Product.Name</h3>
+            <p>€ @Model.Product.Price</p>
+            <p>@Model.Product.Description</p>
+
+            <div class="col">
+                <div class="row-3 pb-1">
+                    <input type="text" maxlength="2" value="0" class="InputAmout">
+                    <button type="button" class="btn btn-outline-dark"><i class="bi bi-cart-fill"></i> Add to cart</button>
+                </div>
+                <div class="row-3 pb-1">
+                    <a asp-action="Edit" asp-route-id="@Model.Product.Id" class="btn btn-outline-primary">Edit</a>
+                    <button type="button" class="btn btn-outline-danger">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

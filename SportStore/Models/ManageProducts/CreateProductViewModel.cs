@@ -32,6 +32,5 @@ namespace SportStore.Models.ManageProducts
         [Display(Name = "Image")]
         public IFormFile ProductImage { set; get; }
         //public string ImageUrl { get; set; }
-
     }
 }
