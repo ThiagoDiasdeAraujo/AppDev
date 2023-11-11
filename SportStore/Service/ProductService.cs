@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using SportStore.Data;
 using SportStore.Data.Entities;
 using SportStore.Models.ManageProducts;
@@ -11,7 +12,10 @@ namespace SportStore.Service
 		ProductDetailsViewModel GetProductDetails(int id);
 		string GetUniqueFileName(string fileName);
 		void CreateProduct(CreateProductViewModel model);
-		EditProductViewModel GetProductForEdit(int id);
+		void EditProduct(int id, EditProductViewModel model);
+        void DeleteProduct(int id);
+
+        EditProductViewModel GetProductForEdit(int id);
 	}
 
 	public class ProductService : IProductService
@@ -48,6 +52,7 @@ namespace SportStore.Service
 				Name = toEdit.Name,
 				Description = toEdit.Description,
 				Price = toEdit.Price,
+				//CurrentImageUrl = toEdit.ImageUrl,
                 AllCategories = _context.Categories
 				.Select(x => new SelectListItem(x.Name, x.Id.ToString()))
 				.ToList()
@@ -55,7 +60,38 @@ namespace SportStore.Service
 			return model;
 		}
 
-		public void CreateProduct(CreateProductViewModel model)
+		public void EditProduct(int id, EditProductViewModel model)
+		{
+            Product toEdit = _context.Products.Find(id);
+
+            toEdit.Name = model.Name;
+            toEdit.Description = model.Description;
+            toEdit.Price = model.Price;
+            toEdit.CategoryId = model.CategoryId;
+
+            if (model.ProductImage != null)
+            {
+                toEdit.ImageUrl = GetUniqueFileName(model.ProductImage.FileName);
+                var uploads = Path.Combine(_hostingEnvironment.ContentRootPath, "wwwroot/imgProducts");
+                var filePath = Path.Combine(uploads, toEdit.ImageUrl);
+                model.ProductImage.CopyTo(new FileStream(filePath, FileMode.Create));
+            }
+
+            _context.SaveChanges();
+
+            //productToEdit.ImageUrl = model.ProductImage;        
+        }
+
+		public void DeleteProduct(int id)
+		{
+            Product toDelete = _context.Products.Find(id);
+
+			_context.Remove(toDelete);
+
+			_context.SaveChanges();
+        }
+
+        public void CreateProduct(CreateProductViewModel model)
 		{
 			//How to upload files in ASP.NET Core?
 			var uniqueFileName = GetUniqueFileName(model.ProductImage.FileName);
@@ -66,12 +102,12 @@ namespace SportStore.Service
 			//Add product in DB
 			Product product = new()
 			{
-				CategoryId = model.CategoryId,
 				Name = model.Name,
 				Description = model.Description,
 				Price = model.Price,
 				ImageUrl = uniqueFileName,
-			};
+                CategoryId = model.CategoryId
+            };
 			_context.Add(product);
 			_context.SaveChanges();
 		}

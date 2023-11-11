@@ -9,11 +9,7 @@ namespace SportStore.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    base.OnConfiguring(optionsBuilder);
-        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SportStore;Trusted_Connection=True");
-        //}
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 

@@ -27,8 +27,14 @@ namespace SportStore.Models.ManageProducts
 		[ValidateNever]
 		public IEnumerable<SelectListItem> AllCategories { get; set; }
 
-		[Display(Name = "Image")]
+        [ValidateNever]
+        [Display(Name = "Image")]
 		public IFormFile ProductImage { set; get; }
 
-    }
+		//[Display(Name = "Current Image")]
+		//public string CurrentImageUrl { get; set; }
+
+		//[Display(Name = "New Image")]
+		//public IFormFile NewProductImage { get; set; }
+	}
 }

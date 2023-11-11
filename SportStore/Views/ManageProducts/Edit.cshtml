@@ -37,6 +37,17 @@
                 <input asp-for="ProductImage" class="form-control" />
                 <span asp-validation-for="ProductImage" class="text-danger"></span>
             </div>
+
+        @*     <div class="form-group">
+                <label asp-for="CurrentImageUrl" class="control-label"></label>
+                <img src="@Model.CurrentImageUrl" class="img-thumbnail" alt="Current Image" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NewProductImage" class="control-label"></label>
+                <input asp-for="NewProductImage" type="file" class="form-control" />
+            </div> *@
+
             <div class="form-group mb-3">
                 <input type="submit" value="Edit" class="btn btn-outline-primary" />
             </div>
