@@ -4,22 +4,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting.Internal;
 using SportStore.Data;
-using SportStore.Data.Entities;
-using SportStore.Models.ManageProducts;
-using SportStore.Service;
+using SportStore.Entities;
+using SportStore.Services;
+using SportStore.ViewModels.ManageProducts;
 using System;
 
 namespace SportStore.Controllers
 {
     public class ManageProductsController : Controller
     {
-        private ApplicationDbContext _context;
-
         private IProductService _productService;
 
-        public ManageProductsController(ApplicationDbContext AppDbContext, IProductService productService)
+        public ManageProductsController(IProductService productService)
         {
-            _context = AppDbContext;
             _productService = productService;
         }
 
@@ -27,18 +24,16 @@ namespace SportStore.Controllers
         public ActionResult Index()
         {
             //return View(new Product());
-            IEnumerable<Product> products = _context.Products.Include(x => x.Category).ToList();
+            IEnumerable<ProductViewModel> products = _productService.GetAllProducts();
             return View(products);
         }
 
         // GET: ManageProductsController/Create
         public ActionResult Create()
         {
-            CreateProductViewModel model = new()
+            ProductFormViewModel model = new()
             {
-                AllCategories = _context.Categories
-                .Select(x => new SelectListItem(x.Name, x.Id.ToString()))
-                .ToList()
+                AllCategories = _productService.GetCategories(),
             };
             return View(model);
         }
@@ -46,26 +41,26 @@ namespace SportStore.Controllers
         // POST: ManageProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateProductViewModel model)
+        public ActionResult Create(ProductFormViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    _productService.CreateProduct(model);
-                }
+                _productService.CreateProduct(model);
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: ManageProductsController/Details/5
         public ActionResult Details(int id)
         {
-            ProductDetailsViewModel model = _productService.GetProductDetails(id);
+            ProductViewModel model = _productService.GetProductDetails(id);
+
+            if (model == null)
+            {
+                // Handle the null case, redirect to an error page, or return a default view
+                return NotFound(); // Or another appropriate result
+            }
 
             return View(model);
         }
@@ -73,31 +68,24 @@ namespace SportStore.Controllers
         // GET: ManageProductsController/Edit/5
         public ActionResult Edit(int id)
         {
-            EditProductViewModel model = _productService.GetProductForEdit(id);
+            ProductFormViewModel model = _productService.GetProductForEdit(id);
+
             return View(model);
         }
 
         // POST: ManageProductsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, EditProductViewModel model)
+        public ActionResult Edit(int id, ProductFormViewModel model)
         {
-
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    //update uitvoeren
-                    //redirect (POST/REDIRECT/GET)
-                    _productService.EditProduct(id, model);
-                    return RedirectToAction("Index");
-                }
+
+                _productService.UpdateProduct(id, model);
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(model);
         }
 
         // POST: ManageProductsController/Delete/5
@@ -105,16 +93,10 @@ namespace SportStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            try
-            {
-                _productService.DeleteProduct(id);
+            _productService.DeleteProduct(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View("Index");
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
+

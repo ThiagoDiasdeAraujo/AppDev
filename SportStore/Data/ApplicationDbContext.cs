@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
-using SportStore.Data.Entities;
+using SportStore.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -9,11 +9,8 @@ namespace SportStore.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-	
 		//Aangezien de categorieën weinig zullen veranderen tijdens de loop van de applicatie, kunnen gebruik maken van seeding om een aantal categorieën vast in de databank te zetten bij het opstartenvan de applicatie.
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,8 +28,7 @@ namespace SportStore.Data
                .HasOne(p => p.Category)
                .WithMany(c => c.Products)
                .HasForeignKey(x => x.CategoryId)
-			   .IsRequired()
-			   .OnDelete(DeleteBehavior.Cascade);
+			   .IsRequired();
 		}
 
         public DbSet<Category> Categories { get; set; }
