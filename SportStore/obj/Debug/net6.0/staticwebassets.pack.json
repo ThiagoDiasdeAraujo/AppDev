@@ -65,8 +65,16 @@
       "PackagePath": "staticwebassets\\imgProducts\\malik-skydsgaard-Z105i0I5NsM-unsplash_8b7e.jpg"
     },
     {
+      "Id": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\imgProducts\\snowboardUpdate_7219.jpg",
+      "PackagePath": "staticwebassets\\imgProducts\\snowboardUpdate_7219.jpg"
+    },
+    {
       "Id": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\imgProducts\\snowboard_0185.jpg",
       "PackagePath": "staticwebassets\\imgProducts\\snowboard_0185.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\imgProducts\\snowboard_89e7.jpg",
+      "PackagePath": "staticwebassets\\imgProducts\\snowboard_89e7.jpg"
     },
     {
       "Id": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\js\\site.js",

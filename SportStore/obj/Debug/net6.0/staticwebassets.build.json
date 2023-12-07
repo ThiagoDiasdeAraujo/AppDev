@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2AZS4S6N3lz+7i7NkmYL0PeyFHvSV6f73BtAVFxK31M=",
+  "Hash": "/WDkIoJmRzRbz0Pb5A8RGBnuaAFF1bqEePDcZg8v5mA=",
   "Source": "SportStore",
   "BasePath": "_content/SportStore",
   "Mode": "Default",
@@ -1341,6 +1341,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imgProducts\\snowboard_0185.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\imgProducts\\snowboard_89e7.jpg",
+      "SourceId": "SportStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\",
+      "BasePath": "_content/SportStore",
+      "RelativePath": "imgProducts/snowboard_89e7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgProducts\\snowboard_89e7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\imgProducts\\snowboardUpdate_7219.jpg",
+      "SourceId": "SportStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\",
+      "BasePath": "_content/SportStore",
+      "RelativePath": "imgProducts/snowboardUpdate_7219.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgProducts\\snowboardUpdate_7219.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\SportStore\\wwwroot\\js\\site.js",

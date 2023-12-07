@@ -11,10 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-//Interface for products service
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+
+//builder.Services.AddScoped<ItCart, ProductRepository>();
+
+builder.Services.AddScoped<ICartService, CartService>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -22,6 +26,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//Session
+//IdleTimeout: geeft aan hoe lang sessie ongebruikt mag zijn alvorens inhoud gewist wordt. Wordt bij elke request gereset.
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromSeconds(1000);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,16 +46,21 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.UseSession();
+
 app.UseStaticFiles();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.UseRouting();
 
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=ManageProducts}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();

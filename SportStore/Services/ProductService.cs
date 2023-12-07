@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 using SportStore.Data;
 using SportStore.Entities;
 using SportStore.Repositories;
-using SportStore.ViewModels.ManageProducts;
+using SportStore.ViewModels.Product;
 
 namespace SportStore.Services
 {
@@ -23,13 +23,13 @@ namespace SportStore.Services
             _hostingEnvironment = hostingEnvironment;
         }
 
-        public ProductViewModel GetProductDetails(int id)
+        public ProductDetailViewModel GetProductDetails(int id)
         {
             Product product = _productRepo.GetById(id);
 
-            ProductViewModel model = new ProductViewModel()
+            ProductDetailViewModel model = new ProductDetailViewModel()
             {
-                Id = product.Id,
+                ProductID = product.Id,
                 Name = product.Name,
                 CategoryName = product.Category.Name,
                 Description = product.Description,
@@ -39,11 +39,11 @@ namespace SportStore.Services
             return model;
         }
 
-        public ProductFormViewModel GetProductForEdit(int id)
+        public AddProductFormViewModel GetProductForEdit(int id)
         {
             Product toEdit = _productRepo.GetById(id);
 
-            ProductFormViewModel model = new()
+            AddProductFormViewModel model = new()
             {
                 Name = toEdit.Name,
                 Description = toEdit.Description,
@@ -61,11 +61,11 @@ namespace SportStore.Services
                 .Select(x => new SelectListItem(x.Name, x.Id.ToString()));
         }
 
-        public IEnumerable<ProductViewModel> GetAllProducts()
+        public IEnumerable<ProductDetailViewModel> GetProducts()
         {
-            return _productRepo.GetProductWithCategory().Select(p => new ProductViewModel()
+            return _productRepo.GetProductWithCategory().Select(p => new ProductDetailViewModel()
             {
-                Id = p.Id,
+                ProductID = p.Id,
                 Name = p.Name,
                 CategoryName = p.Category.Name,
                 Description = p.Description,
@@ -74,7 +74,7 @@ namespace SportStore.Services
             });
         }
 
-        public void UpdateProduct(int id, ProductFormViewModel model)
+        public void UpdateProduct(int id, AddProductFormViewModel model)
         {
             Product toUpdate = _productRepo.GetById(id);
 
@@ -109,7 +109,7 @@ namespace SportStore.Services
             return true;
         }
 
-        public int CreateProduct(ProductFormViewModel model)
+        public int CreateProduct(AddProductFormViewModel model)
         {
             //How to upload files in ASP.NET Core?
             var uniqueFileName = GetUniqueFileName(model.ProductImage.FileName);

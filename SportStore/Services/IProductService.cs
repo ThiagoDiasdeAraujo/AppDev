@@ -1,20 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using SportStore.ViewModels.ManageProducts;
+using SportStore.ViewModels.Cart;
+using SportStore.ViewModels.Product;
 
 namespace SportStore.Services
 {
     public interface IProductService
     {
-        int CreateProduct(ProductFormViewModel model);
-        void UpdateProduct(int id, ProductFormViewModel model);
+        int CreateProduct(AddProductFormViewModel model);
+        void UpdateProduct(int id, AddProductFormViewModel model);
         bool DeleteProduct(int id);
 
-        IEnumerable<ProductViewModel> GetAllProducts();
+        IEnumerable<ProductDetailViewModel> GetProducts();
+
         IEnumerable<SelectListItem> GetCategories();
 
-        string GetUniqueFileName(string fileName);
+        AddProductFormViewModel GetProductForEdit(int id);
 
-        ProductFormViewModel GetProductForEdit(int id);
-        ProductViewModel GetProductDetails(int id);
+        ProductDetailViewModel GetProductDetails(int id);
+
+        string GetUniqueFileName(string fileName);
     }
 }

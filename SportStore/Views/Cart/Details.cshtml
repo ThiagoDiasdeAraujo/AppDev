@@ -1,0 +1,58 @@
+﻿@model SportStore.ViewModels.Cart.CartDetailViewModel
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Subtotal</th>
+            <th hidden scope="col">Delete buttons</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <th scope="row">@item.ProductName</th>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.SubTotal</td>
+                <td><a class="btn btn-outline-danger">Delete</a></td>    
+            </tr>
+        }      
+    </tbody>
+</table>
+
+@* <div class="container-fluid">
+    <div class="row pb-4">
+        <div class="col-md-3">
+            <img src="/imgProducts/@Model.ImageUrl" class="card-img-top  fixed-image-height" alt="...">
+        </div>
+        <div class="col-md-4 align-self-center">
+            <p><strong>Category: </strong>@Model.CategoryName</p>
+            <h3>@Model.Name</h3>
+            <p>€ @Model.Price</p>
+            <p>@Model.Description</p>
+
+            <div class="col w-50">
+                <div class="row-3 pb-3 d-flex justify-content-between">
+                    <form asp-action="AddCartLine" asp-controller="Cart">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <input type="text" maxlength="2" value="0" class="InputQuantity">
+                        <button class="btn btn-outline-dark"><i class="bi bi-cart-fill"></i> Add to cart</button>
+                    </form>
+                </div>
+                <div class=" row-3 d-flex justify-content-between">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">Wijzigen</a>
+                    <form asp-controller="Product" asp-action="Delete">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <button class="btn btn-outline-danger">Verwijderen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@
+

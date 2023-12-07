@@ -43,7 +43,6 @@ namespace SportStore.Repositories
         public T GetById(int id)
         {
             return _context.Set<T>().Include("Category").SingleOrDefault(x => x.Id == id);
-
         }
 
         public bool SaveChanges()
