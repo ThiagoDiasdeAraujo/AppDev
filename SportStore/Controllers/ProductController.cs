@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System;
 
 namespace SportStore.Controllers
 {
+    [Authorize(Policy = "AdminOnly")]
     public class ProductController : Controller
     {
         private IProductService _productService;
@@ -20,7 +22,7 @@ namespace SportStore.Controllers
             _productService = productService;
         }
 
-        // GET: ProductController
+        [AllowAnonymous]
         public ActionResult Index()
         {
             //return View(new Product());
@@ -28,7 +30,6 @@ namespace SportStore.Controllers
             return View(products);
         }
 
-        // GET: ProductController/Create
         public ActionResult Create()
         {
             AddProductFormViewModel model = new()
@@ -38,7 +39,6 @@ namespace SportStore.Controllers
             return View(model);
         }
 
-        // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(AddProductFormViewModel model)
@@ -51,7 +51,6 @@ namespace SportStore.Controllers
             return View(model);
         }
 
-        // GET: ProductController/Details/5
         public ActionResult Details(int id)
         {
             ProductDetailViewModel model = _productService.GetProductDetails(id);
@@ -65,7 +64,6 @@ namespace SportStore.Controllers
             return View(model);
         }
 
-        // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
         {
             AddProductFormViewModel model = _productService.GetProductForEdit(id);
@@ -73,7 +71,6 @@ namespace SportStore.Controllers
             return View(model);
         }
 
-        // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, AddProductFormViewModel model)
@@ -88,7 +85,6 @@ namespace SportStore.Controllers
             return View(model);
         }
 
-        // POST: ProductController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)

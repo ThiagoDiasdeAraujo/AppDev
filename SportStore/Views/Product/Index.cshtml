@@ -4,12 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Products</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
+<h1 hidden>Products</h1>
 
 <div class="row justify-content-center">
     @foreach (var product in Model)
@@ -24,13 +19,3 @@
         </div>
     }
 </div>
-
-
-@* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-<a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-
-@* 
-<div>
-    <img src="/imgProducts/salomon.png" />
-</div> *@

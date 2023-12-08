@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using SportStore.Entities;
 using SportStore.Helpers;
@@ -10,6 +11,7 @@ using System.Text.Json;
 
 namespace SportStore.Controllers
 {
+    [Authorize]
     public class CartController : Controller //Deze controller zal alle interacties met de shoppingcart van de gebruiker afhandelen.
     {
         private ICartService _cartService;
@@ -19,18 +21,34 @@ namespace SportStore.Controllers
             _cartService = service;
         }
 
+        public IActionResult Index()
+        {
+            CartDetailViewModel model = _cartService.GetCartDetails();
+            return View(model);
+        }
+
+
         [HttpPost]
         public IActionResult AddToCart(AddCartLineToCartFormViewModel model)
         {
             _cartService.AddCartLineToCart(model.ProductID, model.Quantity);
-
-            return RedirectToAction("Details");
+            return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Details()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveCartLine(int id)
         {
-            CartDetailViewModel model = _cartService.GetCartDetails();
-            return View(model);
+            _cartService.RemoveCartLineFromCart(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmptyCart()
+        {
+            _cartService.ClearCart();
+            return RedirectToAction("Index", "Product");
         }
     }
 }

@@ -3,9 +3,6 @@ using SportStore.Helpers;
 using SportStore.Models;
 using SportStore.Repositories;
 using SportStore.ViewModels.Cart;
-using SportStore.ViewModels.Product;
-using System.Text.Json;
-using System.Xml.Schema;
 
 namespace SportStore.Services
 {
@@ -19,6 +16,26 @@ namespace SportStore.Services
         {
             _productRepo = productRepo;
             _contextAccessor = contextAccessor;
+        }
+
+        public CartDetailViewModel GetCartDetails()
+        {
+            Cart cart = GetCartFromSession();
+
+            CartDetailViewModel cartDetails = new CartDetailViewModel
+            {
+                CartItems = cart.CartLines.Select(cartItem => new CartDetailsModel
+                {
+                    ProductID = cartItem.ProductID,
+                    ProductName = GetProductName(cartItem.ProductID),
+                    Price = GetProductPrice(cartItem.ProductID),
+                    Quantity = cartItem.Quantity,
+                    SubTotal = cartItem.Quantity * GetProductPrice(cartItem.ProductID),
+                }),
+
+                Total = cart.CartLines.Sum(cartItem => cartItem.Quantity * GetProductPrice(cartItem.ProductID))
+            };
+            return cartDetails;
         }
 
         public void AddCartLineToCart(int productID, int quantity)
@@ -48,23 +65,26 @@ namespace SportStore.Services
             }
         }
 
-        public CartDetailViewModel GetCartDetails()
+        public void RemoveCartLineFromCart(int productID)
         {
             Cart cart = GetCartFromSession();
 
-            CartDetailViewModel cartDetails = new CartDetailViewModel
-            {
-                CartItems = cart.CartLines.Select(cartItem => new CartDetailsModel
-                {
-                    ProductName = GetProductName(cartItem.ProductID),
-                    Price = GetProductPrice(cartItem.ProductID),
-                    Quantity = cartItem.Quantity,
-                    SubTotal = cartItem.Quantity * GetProductPrice(cartItem.ProductID),
-                }),
+            CartLine toRemoveLine = cart.CartLines.FirstOrDefault(cl => cl.ProductID == productID);
 
-                Total = 0
+            if (toRemoveLine != null)
+            {
+                cart.CartLines.Remove(toRemoveLine);
+                AddCartToSession(cart);
+            }
+        }
+
+        public void ClearCart()
+        {
+            Cart cart = new Cart
+            {
+                CartLines = new List<CartLine>()
             };
-            return cartDetails;
+            AddCartToSession(cart);
         }
 
         private string GetProductName(int id)
@@ -77,6 +97,7 @@ namespace SportStore.Services
             return _productRepo.GetById(id).Price;
         }
 
+        //Session Configuration
         private void AddCartToSession(Cart cart)
         {
             if (cart != null)
@@ -84,7 +105,6 @@ namespace SportStore.Services
                 _contextAccessor.HttpContext.Session.SetObjectAsJson("cart", cart);
             }
         }
-
         private Cart GetCartFromSession()
         {
             Cart cart = _contextAccessor.HttpContext.Session.GetObjectFromJson<Cart>("cart");
@@ -93,10 +113,17 @@ namespace SportStore.Services
                 cart = new()
                 {
                     CartLines = new List<CartLine>()
-                };            
+                };
             }
-
             return cart;
+        }
+        private void RemoveCartFromSession()
+        {
+            _contextAccessor.HttpContext.Session.Remove("cart");
+        }
+        private void ClearCartSession()
+        {
+            _contextAccessor.HttpContext.Session.Clear();
         }
     }
 }

@@ -1,6 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<h1>ShoppingCart</h1>
+﻿@model SportStore.ViewModels.Cart.CartDetailViewModel
+
+<div class="container">
+
+<form asp-action="EmptyCart" asp-controller="Cart">
+    <button type="submit" class="btn btn-outline-danger">Empty Cart</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" hidden>ProductID</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col" hidden>Delete buttons</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td hidden>@item.ProductID</td>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.SubTotal</td>
+                <td>
+                    <form asp-action="RemoveCartLine" asp-controller="Cart" asp-route-id="@item.ProductID">
+                        <input type="submit" value="Delete item" class="btn btn-outline-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right fw-bolder">Total:</td>
+            <td>@Model.Total</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+    <form asp-action="Create" asp-controller="Order" method="get">
+        <button type="submit" class="btn btn-outline-success">Complete your order</button>
+    </form>
+</div>
+

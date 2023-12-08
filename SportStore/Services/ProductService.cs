@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using SportStore.Data;
 using SportStore.Entities;
 using SportStore.Repositories;
 using SportStore.ViewModels.Product;

@@ -6,5 +6,4 @@ namespace SportStore.Repositories
     {
         IEnumerable<Product> GetProductWithCategory();
     }
-   
 }
