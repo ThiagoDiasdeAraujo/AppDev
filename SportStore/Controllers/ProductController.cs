@@ -1,18 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting.Internal;
-using SportStore.Data;
-using SportStore.Entities;
 using SportStore.Services;
 using SportStore.ViewModels.Product;
-using System;
+
 
 namespace SportStore.Controllers
 {
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(Policy = "CanManageCatalogPolicy")]
     public class ProductController : Controller
     {
         private IProductService _productService;
@@ -25,7 +19,6 @@ namespace SportStore.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            //return View(new Product());
             IEnumerable<ProductDetailViewModel> products = _productService.GetProducts();
             return View(products);
         }
@@ -51,6 +44,7 @@ namespace SportStore.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
         public ActionResult Details(int id)
         {
             ProductDetailViewModel model = _productService.GetProductDetails(id);

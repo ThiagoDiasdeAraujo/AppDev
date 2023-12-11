@@ -67,6 +67,7 @@ namespace SportStore.Services
 
         public void RemoveCartLineFromCart(int productID)
         {
+            RemoveCartFromSession();
             Cart cart = GetCartFromSession();
 
             CartLine toRemoveLine = cart.CartLines.FirstOrDefault(cl => cl.ProductID == productID);

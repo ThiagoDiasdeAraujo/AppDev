@@ -30,20 +30,15 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
     options.SignIn.RequireConfirmedAccount = true;
-    }).AddEntityFrameworkStores<ApplicationDbContext>();
-
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 8;
+    options.Password.RequiredUniqueChars = 1;
+}).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
-
-//builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-//{
-//    options.Password.RequireDigit = true;
-//    options.Password.RequireLowercase = true;
-//    options.Password.RequireNonAlphanumeric = true;
-//    options.Password.RequireUppercase = true;
-//    options.Password.RequiredLength = 6;
-//    options.Password.RequiredUniqueChars = 1;
-//}).AddEntityFrameworkStores<ApplicationDbContext>();
 
 //Session
 //IdleTimeout: geeft aan hoe lang sessie ongebruikt mag zijn alvorens inhoud gewist wordt. Wordt bij elke request gereset.
@@ -53,7 +48,7 @@ builder.Services.AddSession(options => {
 
 
 builder.Services.AddAuthorization(options => {
-    options.AddPolicy("AdminOnly", policyBuilder => policyBuilder.RequireClaim("CanManageCatalog", "true"));
+    options.AddPolicy("CanManageCatalogPolicy", policyBuilder => policyBuilder.RequireClaim("CanManageCatalog", "true"));
 });
 
 
@@ -77,12 +72,11 @@ app.UseSession();
 
 app.UseStaticFiles();
 
+app.UseRouting();
+
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.UseRouting();
-
 
 app.MapControllerRoute(
     name: "default",

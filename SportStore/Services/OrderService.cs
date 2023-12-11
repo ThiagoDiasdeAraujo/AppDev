@@ -29,7 +29,8 @@ namespace SportStore.Services
                 Zip = model.Zip,
                 Number = model.Number,
                 OrderDate = DateTime.Today,
-                OrderItems = GetOrderItems(model.CustomerID) // Initialize OrderItems
+                CustomerID = model.CustomerID,
+                OrderItems = GetOrderItems(model.CustomerID).ToList() // Initialize OrderItems
             };
 
             if (model.OrderItems != null)

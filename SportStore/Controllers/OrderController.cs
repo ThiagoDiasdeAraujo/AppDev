@@ -14,7 +14,6 @@ namespace SportStore.Controllers
         private readonly IOrderService _orderService;
         private readonly UserManager<ApplicationUser> _userManager;
 
-
         public OrderController(IOrderService orderService, UserManager<ApplicationUser> userManager)
         {
             _orderService = orderService;
@@ -50,17 +49,20 @@ namespace SportStore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AddOrderFormViewModel model)
         {
-            var user = await _userManager.GetUserAsync(HttpContext.User);
-            if (user != null)
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                if (ModelState.IsValid)
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+                if (user != null)
                 {
-                    model.CustomerID = user.Id;
-                    _orderService.AddOrder(model);
+                    if (ModelState.IsValid)
+                    {
+                        model.CustomerID = user.Id;
+                        _orderService.AddOrder(model);
 
-                    return RedirectToAction(nameof(Success));
+                        return RedirectToAction(nameof(Success));
+                    }
+                    return View(model);
                 }
-                return View(model);
             }
             return RedirectToAction("Login", "Account");
         }
