@@ -29,7 +29,9 @@ namespace SportStore.ViewModels.Product
         public IEnumerable<SelectListItem> AllCategories { get; set; }
 
         [Display(Name = "Image")]
+        [Required]
         public IFormFile? ProductImage { set; get; }
-        //public string ImageUrl { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

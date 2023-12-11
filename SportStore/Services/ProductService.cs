@@ -24,7 +24,7 @@ namespace SportStore.Services
         {
             Product product = _productRepo.GetById(id);
 
-            ProductDetailViewModel model = new ProductDetailViewModel()
+            ProductDetailViewModel model = new()
             {
                 ProductID = product.Id,
                 Name = product.Name,

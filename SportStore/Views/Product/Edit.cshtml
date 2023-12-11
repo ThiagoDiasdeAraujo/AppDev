@@ -34,6 +34,7 @@
             </div>
             <div class="form-group mb-3">
                 <label asp-for="ProductImage" class="control-label"></label>
+                <img src="/imgProducts/@Model.ImageUrl" alt="Product Image" class="existing-image" />
                 <input asp-for="ProductImage" class="form-control" />
                 <span asp-validation-for="ProductImage" class="text-danger"></span>
             </div>
