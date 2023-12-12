@@ -74,7 +74,6 @@ namespace SportStore.Controllers
                 _productService.UpdateProduct(id, model);
                 return RedirectToAction(nameof(Index));
             }
-
             return View(model);
         }
 
