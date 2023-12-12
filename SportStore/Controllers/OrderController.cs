@@ -20,13 +20,7 @@ namespace SportStore.Controllers
             _userManager = userManager;
         }
 
-        //public ActionResult Create()
-        //{
-
-        //    AddOrderFormViewModel model = new();
-        //    return View(model);
-        //}
-
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             if (HttpContext.User.Identity.IsAuthenticated)
@@ -52,17 +46,14 @@ namespace SportStore.Controllers
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
-                if (user != null)
+                if (user != null && model != null)
                 {
-                    if (ModelState.IsValid)
-                    {
-                        model.CustomerID = user.Id;
-                        _orderService.AddOrder(model);
+                    model.CustomerID = user.Id;
+                    _orderService.AddOrder(model);
 
-                        return RedirectToAction(nameof(Success));
-                    }
-                    return View(model);
+                    return RedirectToAction(nameof(Success));
                 }
+                return View(model);
             }
             return RedirectToAction("Login", "Account");
         }

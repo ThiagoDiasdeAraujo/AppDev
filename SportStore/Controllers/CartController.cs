@@ -27,12 +27,16 @@ namespace SportStore.Controllers
             return View(model);
         }
 
-
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult AddToCart(AddCartLineToCartFormViewModel model)
         {
-            _cartService.AddCartLineToCart(model.ProductID, model.Quantity);
-            return RedirectToAction(nameof(Index));
+            if (model.Quantity > 0)
+            {
+                _cartService.AddCartLineToCart(model.ProductID, model.Quantity);
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction("Details", "Product", new { id = model.ProductID });
         }
 
         [HttpPost]

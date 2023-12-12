@@ -12,7 +12,7 @@
             <p>@Model.Description</p>
 
             <div class="col w-50">
-                <div class="row-3 pb-3 d-flex justify-content-between">
+                <div class="row-3 pb-3 d-flex">
                     <form asp-action="AddToCart" asp-controller="Cart">
                         <input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
                         <input type="number" maxlength="3" asp-for="Quantity" value="@Model.Quantity" class="InputQuantity">

@@ -7,6 +7,8 @@ namespace SportStore.ViewModels.Product
 {
     public class AddProductFormViewModel
     {
+        public int ProductID { get; set; }
+
         [Required(ErrorMessage = "Name is required")]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -15,9 +17,8 @@ namespace SportStore.ViewModels.Product
         [MaxLength(250)]
         public string Description { get; set; }
 
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "Price is required")]
+        [Precision (2)]
         public decimal Price { get; set; }
 
         //Dropdown
@@ -32,6 +33,6 @@ namespace SportStore.ViewModels.Product
         [Required]
         public IFormFile? ProductImage { set; get; }
 
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using SportStore.Authentication;
 using SportStore.Data;
 using SportStore.Repositories;
-using Microsoft.AspNetCore.Identity;
 using SportStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -46,11 +45,9 @@ builder.Services.AddSession(options => {
     options.IdleTimeout = TimeSpan.FromSeconds(1000);
 });
 
-
 builder.Services.AddAuthorization(options => {
     options.AddPolicy("CanManageCatalogPolicy", policyBuilder => policyBuilder.RequireClaim("CanManageCatalog", "true"));
 });
-
 
 var app = builder.Build();
 

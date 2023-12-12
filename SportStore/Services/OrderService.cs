@@ -11,8 +11,7 @@ namespace SportStore.Services
         private IOrderRepository _orderRepo;
         private IProductRepository _productRepo;
 
-
-        public OrderService(IOrderRepository orderRepo, IProductRepository productRepo)
+        public OrderService(IOrderRepository orderRepo, IProductRepository productRepo, IRepository<OrderItem> orderItemRepo)
         {
             _orderRepo = orderRepo;
             _productRepo = productRepo;
