@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SportStore.Authentication;
+using SportStore.Entities;
 using SportStore.Services;
 using SportStore.ViewModels.Order;
 using SportStore.ViewModels.Product;
@@ -28,10 +29,12 @@ namespace SportStore.Controllers
                 var user = await _userManager.GetUserAsync(HttpContext.User);
                 if (user != null)
                 {
+                    List<OrderItem> orderItems = _orderService.GetOrderItems(user.Id).ToList();
+
                     AddOrderFormViewModel model = new()
                     {
                         CustomerID = user.Id,
-                        OrderItems = _orderService.GetOrderItems(user.Id).ToList()
+                        OrderItems = orderItems
                     };
                     return View(model);
                 }
@@ -62,6 +65,5 @@ namespace SportStore.Controllers
         {
             return View();
         }
-
     }
 }

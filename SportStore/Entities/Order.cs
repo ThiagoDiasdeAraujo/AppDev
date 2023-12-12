@@ -10,6 +10,7 @@
         public string City { get; set; }
         public DateTime OrderDate { get; set; }
         public string  CustomerID { get; set; }
+
         public List<OrderItem> OrderItems { get; set; }
     }
 }

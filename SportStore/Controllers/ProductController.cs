@@ -51,8 +51,7 @@ namespace SportStore.Controllers
 
             if (model == null)
             {
-                // Handle the null case, redirect to an error page, or return a default view
-                return NotFound(); // Or another appropriate result
+                return NotFound();
             }
 
             return View(model);
@@ -84,7 +83,6 @@ namespace SportStore.Controllers
         public ActionResult Delete(int id)
         {
             _productService.DeleteProduct(id);
-
             return RedirectToAction(nameof(Index));
         }
     }

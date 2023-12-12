@@ -12,7 +12,6 @@ namespace SportStore.Data
         //Aangezien de categorieën weinig zullen veranderen tijdens de loop van de applicatie, kunnen gebruik maken van seeding om een aantal categorieën vast in de databank te zetten bij het opstartenvan de applicatie.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Category>().HasData(
                 new() { Id = 1, Name = "Football" },
@@ -27,14 +26,21 @@ namespace SportStore.Data
                .WithMany(c => c.Products)
                .HasForeignKey(x => x.CategoryId)
                .IsRequired();
+
+            modelBuilder.Entity<Order>()
+              .HasMany(o => o.OrderItems)
+              .WithOne(oi => oi.Order)
+              .HasForeignKey(oi => oi.OrderID);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Product> Products { get; set; }
-        
+
         public DbSet<Order> Orders { get; set; }
-        
+
         public DbSet<OrderItem> OrderItems { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace SportStore.Services
         private IOrderRepository _orderRepo;
         private IProductRepository _productRepo;
 
-        public OrderService(IOrderRepository orderRepo, IProductRepository productRepo, IRepository<OrderItem> orderItemRepo)
+        public OrderService(IOrderRepository orderRepo, IProductRepository productRepo)
         {
             _orderRepo = orderRepo;
             _productRepo = productRepo;
@@ -29,7 +29,6 @@ namespace SportStore.Services
                 Number = model.Number,
                 OrderDate = DateTime.Today,
                 CustomerID = model.CustomerID,
-                OrderItems = GetOrderItems(model.CustomerID).ToList() // Initialize OrderItems
             };
 
             if (model.OrderItems != null)
@@ -38,7 +37,7 @@ namespace SportStore.Services
                 {
                     var product = _productRepo.GetById(item.ProductID);
 
-                    OrderItem orderItem = new ()
+                    OrderItem orderItem = new()
                     {
                         Quantity = item.Quantity,
                         UnitPrice = product.Price,
@@ -48,7 +47,6 @@ namespace SportStore.Services
                     newOrder.OrderItems.Add(orderItem);
                 }
             }
-
             _orderRepo.Add(newOrder);
             _orderRepo.SaveChanges();
 

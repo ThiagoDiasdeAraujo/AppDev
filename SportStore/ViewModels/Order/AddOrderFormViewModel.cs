@@ -13,7 +13,7 @@ namespace SportStore.ViewModels.Order
         [MaxLength(50)]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Lirst name is required")]
+        [Required(ErrorMessage = "Last name is required")]
         [MaxLength(50)]
         public string LastName { get; set; }
 
@@ -31,8 +31,6 @@ namespace SportStore.ViewModels.Order
         public string City { get; set; }
 
         [ValidateNever]
-        public IEnumerable<OrderItem> OrderItems { get; set; }
-
-       
+        public IEnumerable<OrderItem> OrderItems { get; set; }       
     }
 }
