@@ -27,7 +27,7 @@ namespace SportStore.Services
                 City = model.City,
                 Zip = model.Zip,
                 Number = model.Number,
-                OrderDate = DateTime.Today,
+                OrderDate = DateTime.Now,
                 CustomerID = model.CustomerID,
             };
 

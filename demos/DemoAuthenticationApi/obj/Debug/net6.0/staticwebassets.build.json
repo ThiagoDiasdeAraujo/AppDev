@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ygutN8e6AcA8LKQMBl0GjCiC0fFDUc615xxLYaNQIB8=",
+  "Source": "DemoAuthenticationApi",
+  "BasePath": "_content/DemoAuthenticationApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

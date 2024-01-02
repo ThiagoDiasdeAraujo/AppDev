@@ -29,7 +29,7 @@ namespace SportStore.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult AddToCart(AddCartLineToCartFormViewModel model)
+        public IActionResult AddToCart(AddToCartModel model)
         {
             if (model.Quantity > 0)
             {
