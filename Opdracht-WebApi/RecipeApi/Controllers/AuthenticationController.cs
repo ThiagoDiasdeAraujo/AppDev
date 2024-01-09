@@ -12,7 +12,6 @@ namespace RecipeApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Policy = "AdminOnly")]
     public class AuthenticationController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;

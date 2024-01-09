@@ -11708,11 +11708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\RecipeApi\\RecipeApi.csproj",
+      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\Opdracht-WebApi\\RecipeApi\\RecipeApi.csproj",
       "projectName": "RecipeApi",
-      "projectPath": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\RecipeApi\\RecipeApi.csproj",
+      "projectPath": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\Opdracht-WebApi\\RecipeApi\\RecipeApi.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\RecipeApi\\obj\\",
+      "outputPath": "C:\\Users\\User\\OneDrive\\Bureaublad\\AppDev\\Opdracht-WebApi\\RecipeApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
